@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Looooading</title>
+  <icon>http://yoursite.com/icon.png</icon>
+  <subtitle>Always</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-03-05T14:14:56.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Jiantao Chen</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Game Test</title>
+    <link href="http://yoursite.com/post/6a2b48a3.html"/>
+    <id>http://yoursite.com/post/6a2b48a3.html</id>
+    <published>2020-03-05T13:34:38.000Z</published>
+    <updated>2020-03-05T14:14:56.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="游戏" scheme="http://yoursite.com/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/post/4a17b156.html"/>
+    <id>http://yoursite.com/post/4a17b156.html</id>
+    <published>2020-03-04T10:13:29.320Z</published>
+    <updated>2020-03-07T14:37:06.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
