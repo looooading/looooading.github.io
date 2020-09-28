@@ -9,6 +9,7 @@
 <p>Install之后再打开IDE，哦豁，还是不能用。真好。</p>
 <p>我又翻了翻CSDN上Grale的教学，发现我根本没有GRADLE_USER_HOME这个环境变量重新写了一个，还是没用。我又看了project里面内置的Gradle文件，发现要用上一个大版本的Gradle（淦）。我又去官网上下载了指定版本的Gradle，又是三个小时的生命流逝了。</p>
 <p>配置好环境之后巧了，还是不能用，真好。</p>
+<p>之后，我去B站上把问题反映给了教程的老师，他告诉我去<a href="https://harmonyos.51cto.com/answer/66" target="_blank" rel="noopener">鸿蒙的论坛</a>去提问。之后那里的人给我了详尽的解决办法，包括重新下载配置Gradle等等。在我又一次尝试无果后。我发现，竟然是因为我的Java版本不对？？？？就离谱啊，我默认是提前装好的Java11.X而IDE默认的竟然是1.多。他就离谱啊，问题总是在意想不到的地方。</p>
 ]]></content>
       <tags>
         <tag>鸿蒙</tag>
