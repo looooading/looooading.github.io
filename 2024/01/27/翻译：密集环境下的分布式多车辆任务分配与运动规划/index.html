@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>翻译：密集环境下的分布式多车辆任务分配与运动规划 | Looooading&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="摘要：本文研究了多车辆任务分配与运动规划问题（MVTAMP）。在密集环境下，一组由非全约束系统车辆组成的车队被命令去巡视一系列目标位置，然后移动到特定的结束区域。例如：清除危险目标、急救和包裹运输等场景实例。我们提出了一种新型的分级方法以便同时处理多车辆的任务分配与运动规划问题。与其他相关工作不同的是，我们的方法考虑了在大规模场景下的适用于非全约束系统车辆的MVTAMP问题。在高层级上，我们提出了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="翻译：密集环境下的分布式多车辆任务分配与运动规划">
+<meta property="og:url" content="https://looooading.github.io/2024/01/27/%E7%BF%BB%E8%AF%91%EF%BC%9A%E5%AF%86%E9%9B%86%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%9A%E8%BD%A6%E8%BE%86%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D%E4%B8%8E%E8%BF%90%E5%8A%A8%E8%A7%84%E5%88%92/index.html">
+<meta property="og:site_name" content="Looooading&#39;s Blog">
+<meta property="og:description" content="摘要：本文研究了多车辆任务分配与运动规划问题（MVTAMP）。在密集环境下，一组由非全约束系统车辆组成的车队被命令去巡视一系列目标位置，然后移动到特定的结束区域。例如：清除危险目标、急救和包裹运输等场景实例。我们提出了一种新型的分级方法以便同时处理多车辆的任务分配与运动规划问题。与其他相关工作不同的是，我们的方法考虑了在大规模场景下的适用于非全约束系统车辆的MVTAMP问题。在高层级上，我们提出了">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-27T15:53:41.000Z">
+<meta property="article:modified_time" content="2024-01-27T16:05:58.000Z">
+<meta property="article:author" content="陈剑涛">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Looooading's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Looooading&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://looooading.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-翻译：密集环境下的分布式多车辆任务分配与运动规划" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/27/%E7%BF%BB%E8%AF%91%EF%BC%9A%E5%AF%86%E9%9B%86%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%9A%E8%BD%A6%E8%BE%86%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D%E4%B8%8E%E8%BF%90%E5%8A%A8%E8%A7%84%E5%88%92/" class="article-date">
+  <time class="dt-published" datetime="2024-01-27T15:53:41.000Z" itemprop="datePublished">2024-01-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Work/">Work</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      翻译：密集环境下的分布式多车辆任务分配与运动规划
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>摘要：本文研究了多车辆任务分配与运动规划问题（MVTAMP）。在密集环境下，一组由非全约束系统车辆组成的车队被命令去巡视一系列目标位置，然后移动到特定的结束区域。例如：清除危险目标、急救和包裹运输等场景实例。我们提出了一种新型的分级方法以便同时处理多车辆的任务分配与运动规划问题。与其他相关工作不同的是，我们的方法考虑了在大规模场景下的适用于非全约束系统车辆的MVTAMP问题。在高层级上，我们提出了一种新型的分布式算法来处理任务分配。这种算法会通过减少车辆与任务或者任务与任务的路线交点来产生一个更接近于最佳的任务分配体系。在低层级上，我们提出了一种新型的分布式运动规划算法。这种算法可以处理在局部规划当中的车辆死锁，并且为密集环境下的非全功能车快速地生成一个可用的新速度，以保障每一辆车都能高效地巡视各自被分配到的目标位置。大量在大规模场景下针对非全约束系统车辆的仿真实验和两次现实实验都验证了我们方案在实际应用中的有效性与优势。我们方案的源代码可以从<a target="_blank" rel="noopener" href="https://github.com/wuuya1/LRGO">https://github.com/wuuya1/LRGO</a>中获取。</p>
+<p><a target="_blank" rel="noopener" href="https://www.alipan.com/s/w2do8zQ6TPf">翻译链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.alipan.com/s/YTayxogQiY3">原文链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://looooading.github.io/2024/01/27/%E7%BF%BB%E8%AF%91%EF%BC%9A%E5%AF%86%E9%9B%86%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%9A%E8%BD%A6%E8%BE%86%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D%E4%B8%8E%E8%BF%90%E5%8A%A8%E8%A7%84%E5%88%92/" data-id="clrz2b77r0004q4u8eyok9k41" data-title="翻译：密集环境下的分布式多车辆任务分配与运动规划" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/17/%E5%8F%91%E6%83%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">发情</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Puzzle/">Puzzle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Literature/">Literature</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Literature/Done/">Done</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Literature/Updating/">Updating</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PRI/" rel="tag">PRI</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/PRI/" style="font-size: 10px;">PRI</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/01/27/%E7%BF%BB%E8%AF%91%EF%BC%9A%E5%AF%86%E9%9B%86%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E5%A4%9A%E8%BD%A6%E8%BE%86%E4%BB%BB%E5%8A%A1%E5%88%86%E9%85%8D%E4%B8%8E%E8%BF%90%E5%8A%A8%E8%A7%84%E5%88%92/">翻译：密集环境下的分布式多车辆任务分配与运动规划</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/17/%E5%8F%91%E6%83%85/">发情</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/14/puppy-love-lesson/">Puppy Love Lesson</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/08/%E8%A1%A5%E6%A1%A3/">补档</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/%E9%AB%98%E5%A2%99/">高墙</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 陈剑涛<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
